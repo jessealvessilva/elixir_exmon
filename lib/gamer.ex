@@ -3,7 +3,7 @@ defmodule ExMon.Game do
 
   def start( computer, player ) do
 
-    initial_value = %{ computer: computer, layer: player, turn: :player, status: :started}
+    initial_value = %{ computer: computer, player: player, turn: :player, status: :started}
 
     Agent.start_link( fn -> initial_value end, name: __MODULE__)
 
@@ -17,5 +17,6 @@ defmodule ExMon.Game do
     Agent.stop(__MODULE__)
   end
 
+  def player, do: Map.get( info(), :player)
 
 end
