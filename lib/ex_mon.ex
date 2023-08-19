@@ -26,7 +26,7 @@ defmodule ExMon do
 
   defp do_move( {:error, move }), do: Status.prin_wrong_message( move )
 
-  defp do_move( {:ok   , move }) do
+  defp do_move( {:ok, move }) do
     case move do
       :move_heal -> "realiza a cura"
       move -> Actions.attack(move)
