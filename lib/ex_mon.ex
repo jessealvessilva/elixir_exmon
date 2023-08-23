@@ -10,9 +10,10 @@ defmodule ExMon do
     Player.build( name, move_rnd, move_avg, move_heal )
   end
 
+  @spec start_game(any) :: :ok
   def start_game( player) do
     @computer_name
-    |> create_player( :punch, :nick, :heal)
+    |> create_player(:punch, :nick, :heal)
     |> Game.start(player)
 
     Status.print_round_message()
